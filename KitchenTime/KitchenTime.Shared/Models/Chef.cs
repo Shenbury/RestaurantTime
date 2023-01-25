@@ -14,7 +14,7 @@ namespace RestaurantTime.Shared.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool IsWorkingToday { get; set; }
+        public bool IsWorkingToday { get; set; } = false;
         public List<Recipe> KnownRecipes { get; set; }
 
         public Food CookFood(Food food)

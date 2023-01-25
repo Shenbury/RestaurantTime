@@ -1,20 +1,20 @@
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+﻿using Microsoft.VisualStudio.TestPlatform.TestHost;
 using RestaurantTime.TestingLibraries.IntegrationTestFramework;
 
 namespace RestaurantTime.Api.ControllerTests
 {
-    public class FrontOfHouseControllerTests
-        : IClassFixture<RestaurantTimeApplicationFactory<Program>>
+    public class KitchenControllerTests
+         : IClassFixture<RestaurantTimeApplicationFactory<Program>>
     {
         private readonly RestaurantTimeApplicationFactory<Program> _factory;
 
-        public FrontOfHouseControllerTests(RestaurantTimeApplicationFactory<Program> factory)
+        public KitchenControllerTests(RestaurantTimeApplicationFactory<Program> factory)
         {
             _factory = factory;
         }
 
         [Theory]
-        [InlineData("/Kitchen")]
+        [InlineData("/")]
         public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
         {
             // Arrange

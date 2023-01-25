@@ -7,7 +7,7 @@ namespace RestaurantTime.Shared.Models
         private string UncookedName { get; set; }
         private string CookedName { get; set; }
 
-        public Food(int id, string uncookedName, string cookedName, string description , bool isCooked = false, bool isBurnt = false, bool isEdible = false)
+        public Food(int id, string uncookedName, string cookedName, string description , bool isCooked = false, bool isBurnt = false, bool isEdible = false, bool isServed = false)
         {
             Id = id;
             UncookedName = uncookedName;
@@ -17,6 +17,7 @@ namespace RestaurantTime.Shared.Models
             IsCooked = isCooked;
             IsBurnt = isBurnt;
             IsEdible = isEdible;
+            IsServed = isServed;
         }
 
         [Key]
@@ -26,6 +27,7 @@ namespace RestaurantTime.Shared.Models
         public bool IsCooked { get; set; } = false;
         public bool IsBurnt { get; set; } = false;
         public bool IsEdible { get; set; } = false;
+        public bool IsServed { get; set; } = false;
 
         public Food Cooking(Food food)
         {

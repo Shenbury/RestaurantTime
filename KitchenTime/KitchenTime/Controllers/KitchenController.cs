@@ -14,7 +14,7 @@ namespace RestaurantTime.Api.Controllers
         }
 
         [HttpPost(Name = "CreateKitchenTicket")]
-        public IEnumerable<Order> CreateKitchenTicket(Order order)
+        public IEnumerable<Order> CreateKitchenTicket(Order order, int waiterId)
         {
 
         }
