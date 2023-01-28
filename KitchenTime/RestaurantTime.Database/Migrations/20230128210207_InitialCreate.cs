@@ -30,8 +30,7 @@ namespace RestaurantTime.Database.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsServed = table.Column<bool>(type: "bit", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -219,6 +218,56 @@ namespace RestaurantTime.Database.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Chefs",
+                columns: new[] { "Id", "IsWorkingToday", "Name" },
+                values: new object[] { 1, true, "Bob Marley" });
+
+            migrationBuilder.InsertData(
+                table: "Drinks",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 1, "Stuff with Tomato Juice", "Bloody Mary" });
+
+            migrationBuilder.InsertData(
+                table: "Guests",
+                columns: new[] { "Id", "WaiterId" },
+                values: new object[] { 1, null });
+
+            migrationBuilder.InsertData(
+                table: "Recipes",
+                columns: new[] { "Id", "Description", "Name", "SuccessRate" },
+                values: new object[] { 1, "Some Jerkin Chicken", "Jerk Chicken", 0.9m });
+
+            migrationBuilder.InsertData(
+                table: "Waiters",
+                columns: new[] { "Id", "CanCarryPlates", "CanTakeOrders", "Name" },
+                values: new object[] { 1, false, true, "Michael Jackson" });
+
+            migrationBuilder.InsertData(
+                table: "ChefRecipe",
+                columns: new[] { "ChefId", "RecipeId", "DateChefLearnedRecipe" },
+                values: new object[] { 1, 1, new DateTime(2023, 1, 28, 21, 2, 6, 925, DateTimeKind.Local).AddTicks(9777) });
+
+            migrationBuilder.InsertData(
+                table: "Foods",
+                columns: new[] { "Id", "CookedName", "Description", "IsBurnt", "IsCooked", "IsEdible", "IsServed", "RecipeId", "UncookedName" },
+                values: new object[] { 1, "Jerk Chicken", "Top Notch Jerk Chicken", false, false, false, false, 1, "Raw Chicken and Sauce" });
+
+            migrationBuilder.InsertData(
+                table: "Orders",
+                columns: new[] { "Id", "BeenServed", "EndTime", "GuestId", "HasOrderedFood", "InKitchen", "PlatesTakenAway", "StartTime", "WaiterId" },
+                values: new object[] { 1, false, null, 1, true, false, false, new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(3847), 1 });
+
+            migrationBuilder.InsertData(
+                table: "DrinkOrder",
+                columns: new[] { "DrinkId", "OrderId", "TimeOfOrder" },
+                values: new object[] { 1, 1, new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(3811) });
+
+            migrationBuilder.InsertData(
+                table: "FoodOrder",
+                columns: new[] { "FoodId", "OrderId", "TimeOfOrder" },
+                values: new object[] { 1, 1, new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(1828) });
+
             migrationBuilder.CreateIndex(
                 name: "IX_ChefRecipe_RecipeId",
                 table: "ChefRecipe",
@@ -247,8 +296,7 @@ namespace RestaurantTime.Database.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_GuestId",
                 table: "Orders",
-                column: "GuestId",
-                unique: true);
+                column: "GuestId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_WaiterId",

@@ -22,7 +22,8 @@ namespace RestaurantTime.Api.Controllers
             _orderService = orderService;
         }
 
-        [HttpPost(Name = "CreateOrder")]
+        [HttpPost]
+        [Route("CreateOrder")]
         public async Task<GetOrderDto> CreateOrder(CreateOrderDto dto)
         {
             _logger.LogInformation($"Validating {nameof(CreateOrderDto)}");

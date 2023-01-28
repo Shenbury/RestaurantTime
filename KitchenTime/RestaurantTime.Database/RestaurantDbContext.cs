@@ -8,6 +8,7 @@ namespace RestaurantTime.Database
     {
         public RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<Recipe> Recipes { get; set; }
@@ -43,7 +44,7 @@ namespace RestaurantTime.Database
             {
                 Id = 1,
                 Description = "Stuff with Tomato Juice",
-                Name = "Blood Mary",
+                Name = "Bloody Mary",
 
             });
 
@@ -139,12 +140,6 @@ namespace RestaurantTime.Database
                 InKitchen = false,
                 PlatesTakenAway = false,
                 WaiterId = 1,
-                FoodOrders = new List<FoodOrder> { new FoodOrder
-                {
-                    FoodId = 1,
-                    OrderId = 1,
-                    TimeOfOrder = DateTime.Now,
-                } }
             });
         }
     }

@@ -40,6 +40,14 @@ namespace RestaurantTime.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Chefs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsWorkingToday = true,
+                            Name = "Bob Marley"
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.ChefRecipe", b =>
@@ -60,6 +68,14 @@ namespace RestaurantTime.Database.Migrations
                     b.HasIndex("RecipeId");
 
                     b.ToTable("ChefRecipe");
+
+                    b.HasData(
+                        new
+                        {
+                            ChefId = 1,
+                            RecipeId = 1,
+                            DateChefLearnedRecipe = new DateTime(2023, 1, 28, 21, 2, 6, 925, DateTimeKind.Local).AddTicks(9777)
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Drink", b =>
@@ -74,9 +90,6 @@ namespace RestaurantTime.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsServed")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +97,14 @@ namespace RestaurantTime.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Drinks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Stuff with Tomato Juice",
+                            Name = "Bloody Mary"
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.DrinkOrder", b =>
@@ -104,6 +125,14 @@ namespace RestaurantTime.Database.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("DrinkOrder");
+
+                    b.HasData(
+                        new
+                        {
+                            DrinkId = 1,
+                            OrderId = 1,
+                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(3811)
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Food", b =>
@@ -146,6 +175,20 @@ namespace RestaurantTime.Database.Migrations
                     b.HasIndex("RecipeId");
 
                     b.ToTable("Foods");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CookedName = "Jerk Chicken",
+                            Description = "Top Notch Jerk Chicken",
+                            IsBurnt = false,
+                            IsCooked = false,
+                            IsEdible = false,
+                            IsServed = false,
+                            RecipeId = 1,
+                            UncookedName = "Raw Chicken and Sauce"
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.FoodOrder", b =>
@@ -166,6 +209,14 @@ namespace RestaurantTime.Database.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("FoodOrder");
+
+                    b.HasData(
+                        new
+                        {
+                            FoodId = 1,
+                            OrderId = 1,
+                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(1828)
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Guest", b =>
@@ -184,6 +235,12 @@ namespace RestaurantTime.Database.Migrations
                     b.HasIndex("WaiterId");
 
                     b.ToTable("Guests");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Order", b =>
@@ -220,12 +277,24 @@ namespace RestaurantTime.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GuestId")
-                        .IsUnique();
+                    b.HasIndex("GuestId");
 
                     b.HasIndex("WaiterId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BeenServed = false,
+                            GuestId = 1,
+                            HasOrderedFood = true,
+                            InKitchen = false,
+                            PlatesTakenAway = false,
+                            StartTime = new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(3847),
+                            WaiterId = 1
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Recipe", b =>
@@ -250,6 +319,15 @@ namespace RestaurantTime.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Recipes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Some Jerkin Chicken",
+                            Name = "Jerk Chicken",
+                            SuccessRate = 0.9m
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Waiter", b =>
@@ -273,6 +351,15 @@ namespace RestaurantTime.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Waiters");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CanCarryPlates = false,
+                            CanTakeOrders = true,
+                            Name = "Michael Jackson"
+                        });
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.ChefRecipe", b =>
@@ -353,8 +440,8 @@ namespace RestaurantTime.Database.Migrations
             modelBuilder.Entity("RestaurantTime.Shared.Models.Order", b =>
                 {
                     b.HasOne("RestaurantTime.Shared.Models.Guest", "Guest")
-                        .WithOne("Order")
-                        .HasForeignKey("RestaurantTime.Shared.Models.Order", "GuestId")
+                        .WithMany("Orders")
+                        .HasForeignKey("GuestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -376,8 +463,7 @@ namespace RestaurantTime.Database.Migrations
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Guest", b =>
                 {
-                    b.Navigation("Order")
-                        .IsRequired();
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Order", b =>

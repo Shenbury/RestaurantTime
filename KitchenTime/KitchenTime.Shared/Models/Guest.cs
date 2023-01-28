@@ -3,6 +3,7 @@
     public class Guest
     {
         public int Id { get; set; }
-        public Order Order{ get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

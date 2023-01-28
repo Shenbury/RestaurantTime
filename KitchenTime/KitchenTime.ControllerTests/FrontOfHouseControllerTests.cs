@@ -1,7 +1,7 @@
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 using RestaurantTime.Shared.Dtos.OrderDto;
 using RestaurantTime.TestingLibraries.IntegrationTestFramework;
 using System.Text;
+using System.Text.Json;
 
 namespace RestaurantTime.Api.ControllerTests
 {
@@ -15,19 +15,20 @@ namespace RestaurantTime.Api.ControllerTests
             _factory = factory;
         }
 
-        [Theory]
-        [InlineData("/Kitchen/CreateOrder")]
-        public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
+        [Fact]
+        public async Task Can_CreateAnOrder()
         {
             // Arrange
             var client = _factory.CreateClient();
             var newOrder = new CreateOrderDto(1, 1, new List<int> { 1 }, new List<int> { 1 }, DateTime.Now, null, true, false, false, false);
-            var newOrderContent = new StringContent(newOrder.ToString(), Encoding.UTF8, "application/json");
+            var newOrderContent = new StringContent(JsonSerializer.Serialize(newOrder), Encoding.UTF8, "application/json");
 
             // Act
-            var response = await client.PostAsync("/Kitchen/CreateOrder", newOrderContent);
+            var response = await client.PostAsync("FrontOfHouse/CreateOrder", newOrderContent);
 
             // Assert
+            var responseString = response.Content.ReadAsStringAsync();
+
             response.EnsureSuccessStatusCode(); // Status Code 200-299
 
             Assert.NotNull(response.Content.ReadAsStringAsync());
