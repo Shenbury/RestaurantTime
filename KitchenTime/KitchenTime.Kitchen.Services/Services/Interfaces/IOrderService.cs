@@ -2,8 +2,8 @@
 
 namespace RestaurantTime.Kitchen.Services.Services.Interfaces
 {
-    public interface ICreateOrderService
+    public interface IOrderService
     {
-        Task<GetOrderDto> CreateOrderDto(CreateOrderDto dto);
+        Task<GetOrderDto> CreateOrder(CreateOrderDto dto);
     }
 }

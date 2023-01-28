@@ -14,16 +14,16 @@ namespace RestaurantTime.Api.Controllers
             _logger = logger;
         }
 
-        [HttpPut(Name = "CookFood")]
-        public IEnumerable<WeatherForecast> CookFood()
-        {
+        //[HttpPut(Name = "CookFood")]
+        //public IEnumerable<WeatherForecast> CookFood()
+        //{
 
-        }
+        //}
 
-        [HttpGet(Name = "GetOrderStatus")]
-        public IEnumerable<WeatherForecast> GetOrderStatus()
-        {
+        //[HttpGet(Name = "GetOrderStatus")]
+        //public IEnumerable<WeatherForecast> GetOrderStatus()
+        //{
 
-        }
+        //}
     }
 }

@@ -4,18 +4,20 @@ using RestaurantTime.Shared.Dtos.OrderDto;
 
 namespace RestaurantTime.Kitchen.Services.Services
 {
-    public class CreateOrderService : ICreateOrderService
+    public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
 
-        public CreateOrderService(IOrderRepository orderRepository)
+        public OrderService(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
         }
 
-        public async Task<GetOrderDto> CreateOrderDto(CreateOrderDto dto)
+        public async Task<GetOrderDto> CreateOrder(CreateOrderDto dto)
         {
-            throw new NotImplementedException();
+            var order = await _orderRepository.Create(dto);
+
+            return order;
         }
     }
 }
