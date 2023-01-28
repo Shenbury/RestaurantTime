@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using RestaurantTime.Shared.Dtos.OrderDto;
 
 namespace RestaurantTime.Api.Controllers
 {
@@ -13,19 +14,13 @@ namespace RestaurantTime.Api.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "CreateKitchenTicket")]
-        public IEnumerable<Order> CreateKitchenTicket(Order order, int waiterId)
-        {
-
-        }
-
         [HttpPut(Name = "CookFood")]
         public IEnumerable<WeatherForecast> CookFood()
         {
 
         }
 
-        [HttpGet(Name = "GetTicketStatus")]
+        [HttpGet(Name = "GetOrderStatus")]
         public IEnumerable<WeatherForecast> GetOrderStatus()
         {
 

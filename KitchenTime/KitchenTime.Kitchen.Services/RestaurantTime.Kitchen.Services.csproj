@@ -9,7 +9,11 @@
   <ItemGroup>
     <Folder Include="Dtos\" />
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KitchenTime.Shared\RestaurantTime.Shared.csproj" />
+    <ProjectReference Include="..\RestaurantTime.Database\RestaurantTime.Database.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,21 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
-using RestaurantTime.Shared.Dtos;
+using RestaurantTime.Kitchen.Services.Services.Interfaces;
+using RestaurantTime.Shared.Dtos.OrderDto;
 using RestaurantTime.Shared.Models;
 
 namespace RestaurantTime.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class FrontOfHouseController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly ILogger<FrontOfHouseController> _logger;
+        private readonly ICreateOrderService _createOrderService;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public FrontOfHouseController(
+            ILogger<FrontOfHouseController> logger, 
+            ICreateOrderService createOrderService
+            )
         {
             _logger = logger;
         }
@@ -23,7 +23,7 @@ namespace RestaurantTime.Api.Controllers
         [HttpPost(Name = "TakeOrder")]
         public Order TakeOrder(CreateOrderDto dto)
         {
-            dto.Create();
+            var x = await _createOrderService.CreateKichenTicket();
 
             return 
         }

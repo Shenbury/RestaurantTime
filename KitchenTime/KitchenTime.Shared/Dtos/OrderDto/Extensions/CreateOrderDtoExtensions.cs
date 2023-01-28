@@ -1,8 +1,8 @@
-﻿namespace RestaurantTime.Shared.Dtos.Extensions
+﻿namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
 {
     public static class CreateOrderDtoExtensions
     {
-        public static CreateOrderDto Create (this CreateOrderDto dto)
+        public static CreateOrderDto Create(this CreateOrderDto dto)
         {
             // Fetch Guest
 
