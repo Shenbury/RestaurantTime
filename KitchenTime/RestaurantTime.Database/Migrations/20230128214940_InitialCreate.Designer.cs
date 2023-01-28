@@ -12,7 +12,7 @@ using RestaurantTime.Database;
 namespace RestaurantTime.Database.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    [Migration("20230128210207_InitialCreate")]
+    [Migration("20230128214940_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace RestaurantTime.Database.Migrations
                         {
                             ChefId = 1,
                             RecipeId = 1,
-                            DateChefLearnedRecipe = new DateTime(2023, 1, 28, 21, 2, 6, 925, DateTimeKind.Local).AddTicks(9777)
+                            DateChefLearnedRecipe = new DateTime(2023, 1, 28, 21, 49, 39, 722, DateTimeKind.Local).AddTicks(7796)
                         });
                 });
 
@@ -133,7 +133,7 @@ namespace RestaurantTime.Database.Migrations
                         {
                             DrinkId = 1,
                             OrderId = 1,
-                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(3811)
+                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 49, 39, 723, DateTimeKind.Local).AddTicks(2032)
                         });
                 });
 
@@ -217,7 +217,7 @@ namespace RestaurantTime.Database.Migrations
                         {
                             FoodId = 1,
                             OrderId = 1,
-                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(1828)
+                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 49, 39, 722, DateTimeKind.Local).AddTicks(9943)
                         });
                 });
 
@@ -294,7 +294,7 @@ namespace RestaurantTime.Database.Migrations
                             HasOrderedFood = true,
                             InKitchen = false,
                             PlatesTakenAway = false,
-                            StartTime = new DateTime(2023, 1, 28, 21, 2, 6, 926, DateTimeKind.Local).AddTicks(3847),
+                            StartTime = new DateTime(2023, 1, 28, 21, 49, 39, 723, DateTimeKind.Local).AddTicks(2071),
                             WaiterId = 1
                         });
                 });

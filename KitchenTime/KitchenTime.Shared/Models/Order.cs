@@ -19,10 +19,10 @@ namespace RestaurantTime.Shared.Models
         public int WaiterId { get; set; }
         public Waiter Waiter { get; set; }
 
-        public ICollection<Food> OrderedFoodItems { get; set; }
+        public ICollection<Food> Foods { get; set; }
         public List<FoodOrder> FoodOrders { get; set; }
 
-        public ICollection<Drink> OrderedDrinkItems { get; set; }
+        public ICollection<Drink> Drinks { get; set; }
         public List<DrinkOrder> DrinkOrders { get; set; }
     }
 }

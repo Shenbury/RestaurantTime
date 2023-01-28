@@ -80,7 +80,7 @@ namespace RestaurantTime.Database
 
             modelBuilder.Entity<Food>()
                 .HasMany(c => c.Orders)
-                .WithMany(r => r.OrderedFoodItems)
+                .WithMany(r => r.Foods)
                 .UsingEntity<FoodOrder>(
                 j =>
                 {
@@ -112,7 +112,7 @@ namespace RestaurantTime.Database
 
             modelBuilder.Entity<Drink>()
                 .HasMany(c => c.Orders)
-                .WithMany(r => r.OrderedDrinkItems)
+                .WithMany(r => r.Drinks)
                 .UsingEntity<DrinkOrder>(
                 j =>
                 {

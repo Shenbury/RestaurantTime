@@ -4,7 +4,7 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
 {
     public static class OrderDtoExtensions
     {
-        public static Order ToOrderModel(this CreateOrderDto dto)
+       public static Order ToOrderModel(this CreateOrderDto dto)
         {
             var order = new Order
             {
@@ -16,6 +16,8 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
                 StartTime = DateTime.Now,
                 GuestId = dto.GuestId,
                 WaiterId = dto.WaiterId,
+                FoodOrders = dto.FoodIds.ToFoodOrders(),
+                DrinkOrders = dto.DrinkIds.ToDrinkOrders()
             };
 
             return order;
@@ -62,8 +64,8 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
                     orderId,
                     entity.GuestId,
                     entity.WaiterId,
-                    entity.OrderedFoodItems.ToList(),
-                    entity.OrderedDrinkItems.ToList(),
+                    entity.Foods.ToList(),
+                    entity.Drinks.ToList(),
                     entity.StartTime,
                     entity.EndTime,
                     entity.HasOrderedFood,
@@ -73,6 +75,26 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
                 );
 
             return dto;
+        }
+
+        private static List<FoodOrder> ToFoodOrders(this List<int> ints)
+        {
+            var foodOrders = ints.Select(id => new FoodOrder
+            {
+                FoodId = id
+            }).ToList();
+
+            return foodOrders;
+        }
+
+        private static List<DrinkOrder> ToDrinkOrders(this List<int> ints)
+        {
+            var drinkOrders = ints.Select(id => new DrinkOrder
+            {
+                DrinkId = id
+            }).ToList();
+
+            return drinkOrders;
         }
     }
 }

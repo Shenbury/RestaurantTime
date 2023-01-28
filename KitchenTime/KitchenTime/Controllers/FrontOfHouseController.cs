@@ -31,8 +31,8 @@ namespace RestaurantTime.Api.Controllers
             _logger.LogInformation($"Received request to create order for waiter {dto.WaiterId}");
 
             var order = await _orderService.CreateOrder(dto);
-
             _logger.LogInformation($"Returning order by id {order.Id}");
+
             return order;
         }
     }
