@@ -2,7 +2,7 @@
 {
     public class CreateOrderDto
     {
-        public CreateOrderDto(int guestId, int waiterId, List<int> foodIds, List<int> drinkIds, DateTime startTime, DateTime endTime, bool hasOrderedFood, bool inKitchen, bool beenServed, bool platesTakenAway)
+        public CreateOrderDto(int guestId, int waiterId, List<int> foodIds, List<int> drinkIds, DateTime startTime, DateTime? endTime, bool hasOrderedFood, bool inKitchen, bool beenServed, bool platesTakenAway)
         {
             GuestId = guestId;
             WaiterId = waiterId;
@@ -21,7 +21,7 @@
         public List<int> FoodIds { get; set; }
         public List<int> DrinkIds { get; set; }
         public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
         public bool HasOrderedFood { get; set; }
         public bool InKitchen { get; set; } = false;
         public bool BeenServed { get; set; } = false;

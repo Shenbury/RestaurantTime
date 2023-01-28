@@ -53,7 +53,7 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
             return (drinkOrders, foodOrders);
         }
 
-        public static GetOrderDto OrderToGetOrderDto(this Order entity)
+        public static GetOrderDto ToGetOrderDto(this Order entity)
         {
             var orderId = entity.Id.HasValue ? entity.Id : throw new NullReferenceException($"No ID was found for the order {entity.Id}");
 
