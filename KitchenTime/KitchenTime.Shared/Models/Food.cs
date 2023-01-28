@@ -18,6 +18,8 @@ namespace RestaurantTime.Shared.Models
         public int RecipeId { get; set; }
         public Recipe Recipe { get; set; }
 
+        public ICollection<Order> Orders { get; set; }
+
         private string FoodsCurrentName()
         {
             if (IsCooked)

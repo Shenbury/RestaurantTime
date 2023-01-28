@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using RestaurantTime.Kitchen.Services.Services.Interfaces;
+using RestaurantTime.FrontOfHouse.Services.Services.Interfaces;
 using RestaurantTime.Shared.Dtos.OrderDto;
 using RestaurantTime.Shared.Dtos.OrderDto.Validators;
 

@@ -16,7 +16,7 @@ namespace RestaurantTime.Api.ControllerTests
         }
 
         [Fact]
-        public async Task Can_CreateAnOrder()
+        public async Task Can_CreateOrder_With_OrderDetails()
         {
             // Arrange
             var client = _factory.CreateClient();
@@ -31,6 +31,7 @@ namespace RestaurantTime.Api.ControllerTests
 
             response.EnsureSuccessStatusCode(); // Status Code 200-299
 
+            // TODO: Order Entity Checks
             Assert.NotNull(response.Content.ReadAsStringAsync());
         }
     }

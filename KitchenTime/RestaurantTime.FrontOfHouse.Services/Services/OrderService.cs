@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using RestaurantTime.Database.Services.Interfaces;
-using RestaurantTime.Kitchen.Services.Services.Interfaces;
+using RestaurantTime.FrontOfHouse.Services.Services.Interfaces;
 using RestaurantTime.Shared.Dtos.OrderDto;
 
-namespace RestaurantTime.Kitchen.Services.Services
+namespace RestaurantTime.FrontOfHouse.Services.Services
 {
     public class OrderService : IOrderService
     {

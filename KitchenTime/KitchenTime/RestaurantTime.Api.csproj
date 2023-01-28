@@ -16,6 +16,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\KitchenTime.Kitchen.Services\RestaurantTime.Kitchen.Services.csproj" />
 		<ProjectReference Include="..\KitchenTime.Shared\RestaurantTime.Shared.csproj" />
+		<ProjectReference Include="..\RestaurantTime.FrontOfHouse.Services\RestaurantTime.FrontOfHouse.Services.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

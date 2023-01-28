@@ -1,6 +1,6 @@
 ﻿using RestaurantTime.Shared.Dtos.OrderDto;
 
-namespace RestaurantTime.Kitchen.Services.Services.Interfaces
+namespace RestaurantTime.FrontOfHouse.Services.Services.Interfaces
 {
     public interface IOrderService
     {
