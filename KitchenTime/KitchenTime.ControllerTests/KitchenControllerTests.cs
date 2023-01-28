@@ -13,7 +13,7 @@ namespace RestaurantTime.Api.ControllerTests
             _factory = factory;
         }
 
-        [Fact]
+        [Theory]
         [InlineData("/Kitchen/CreateKitchenTicket")]
         public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
         {

@@ -1,37 +1,29 @@
 ﻿using RestaurantTime.Database.Services.Interfaces;
 using RestaurantTime.Shared.Dtos.OrderDto;
+using RestaurantTime.Shared.Dtos.OrderDto.Extensions;
+using RestaurantTime.Shared.Models;
 using System.Reflection.Metadata;
 
 namespace RestaurantTime.Database.Services
 {
     public class OrderRepository : IOrderRepository
     {
+        private readonly RestaurantDbContext _restaurantDb;
+
+        public OrderRepository(RestaurantDbContext restaurantDb)
+        {
+            restaurantDb = _restaurantDb;
+        }
+
         public async Task<GetOrderDto> Create(CreateOrderDto dto)
         {
-            using (var db = new RestaurantDbContext())
-            {
-                // Create and save a new Blog
-                Console.Write("Enter a name for a new Blog: ");
-                var name = Console.ReadLine();
+            var order = dto.ToOrderModel();
 
-                var blog = new Blog { Name = name };
-                db.Blogs.Add(blog);
-                db.SaveChanges();
+            var entity = await _restaurantDb.AddAsync<Order>(order);
 
-                // Display all Blogs from the database
-                var query = from b in db.Blogs
-                            orderby b.Name
-                            select b;
+            order
 
-                Console.WriteLine("All blogs in the database:");
-                foreach (var item in query)
-                {
-                    Console.WriteLine(item.Name);
-                }
 
-                Console.WriteLine("Press any key to exit...");
-                Console.ReadKey();
-            }
         }
     }
 }

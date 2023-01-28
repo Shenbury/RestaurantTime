@@ -4,24 +4,11 @@ namespace RestaurantTime.Shared.Models
 {
     public class Food
     {
-        public string UncookedName { get; set; }
-        public string CookedName { get; set; }
-
-        public Food(int id, string uncookedName, string cookedName, string description , bool isCooked = false, bool isBurnt = false, bool isEdible = false, bool isServed = false)
-        {
-            Id = id;
-            UncookedName = uncookedName;
-            CookedName = cookedName;
-            Description = description;
-            IsCooked = isCooked;
-            IsBurnt = isBurnt;
-            IsEdible = isEdible;
-            IsServed = isServed;
-        }
-
         [Key]
         public int Id { get; set; }
-        public string Name { get { return IsCooked ? CookedName : UncookedName; } }
+        public string Name { get { return FoodsCurrentName(); } }
+        public string UncookedName { get; set; }
+        public string CookedName { get; set; }
         public string Description { get; set; }
         public bool IsCooked { get; set; } = false;
         public bool IsBurnt { get; set; } = false;
@@ -31,19 +18,21 @@ namespace RestaurantTime.Shared.Models
         public int RecipeId { get; set; }
         public Recipe Recipe { get; set; }
 
-        public Food Cooking(Food food)
-        {
-            food.IsCooked = true;
-            food.Name = CookedName;
+        public ICollection<Order> Orders { get; set; }
 
+        private string FoodsCurrentName()
+        {
             if (IsCooked)
             {
-                IsBurnt = true;
-                food.Name = "Burnt " + CookedName;
-                IsEdible = true;
+                if (IsBurnt)
+                {
+                    return "Burnt " + CookedName;
+                }
+
+                return CookedName;
             }
 
-            return food;
+            return UncookedName;
         }
     }
 }

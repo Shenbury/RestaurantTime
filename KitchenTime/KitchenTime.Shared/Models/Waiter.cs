@@ -6,6 +6,8 @@
         public string Name { get; set; }
         public bool CanCarryPlates { get; set; }
         public bool CanTakeOrders { get; set; }
-        public bool IsServed { get; set; }
+
+        public ICollection<Order> Orders { get;set; }
+        public ICollection<Guest> Guests { get; set; }
     }
 }
