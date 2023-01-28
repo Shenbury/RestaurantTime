@@ -1,4 +1,4 @@
-namespace SharedLibraries.Tests.Shared.Dtos.OrderDto.Extensions
+namespace SharedLibraries.Tests.RestaurantTime.Shared.Dtos.OrderDto.Extensions
 {
     public class OrderDtoExtensionTests
     {

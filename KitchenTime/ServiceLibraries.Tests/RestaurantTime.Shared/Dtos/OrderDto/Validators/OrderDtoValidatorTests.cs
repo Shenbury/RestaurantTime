@@ -1,4 +1,4 @@
-﻿namespace SharedLibraries.Tests.Shared.Dtos.OrderDto.Validators
+﻿namespace SharedLibraries.Tests.RestaurantTime.Shared.Dtos.OrderDto.Validators
 {
     public class OrderDtoValidatorTests
     {

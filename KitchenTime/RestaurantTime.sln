@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantTime.TestingLibra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantTime.Database", "RestaurantTime.Database\RestaurantTime.Database.csproj", "{2D8CFE55-7793-4452-84FC-D2746440E30A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service.Libraries.Tests", "Service.Libraries.Tests", "{5E598409-0FD9-4891-A10B-E941F5B6E5C0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceLibraries.Tests", "ServiceLibraries.Tests", "{5E598409-0FD9-4891-A10B-E941F5B6E5C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantTime.FrontOfHouse.UnitTests", "RestaurantTime.FrontOfHouse.UnitTests\RestaurantTime.FrontOfHouse.UnitTests.csproj", "{F0CF3C6A-51E1-43EB-B314-B079266C2876}"
 EndProject
