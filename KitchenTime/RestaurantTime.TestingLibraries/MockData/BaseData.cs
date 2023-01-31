@@ -12,7 +12,7 @@ namespace RestaurantTime.TestingLibraries.MockData
 
         public static Guest BaseGuest = new Guest { Id = 2 };
 
-        public static Food BaseFood = new Food { Id = 2, CookedName = "Beef Wellington", UncookedName = "Beef and Dough", RecipeId = 1 };
+        public static Food BaseFood = new Food { Id = 2, Description = "Good old Beef in Pastry" , CookedName = "Beef Wellington", UncookedName = "Beef and Dough", RecipeId = 1 };
 
         public static Drink BaseDrink = new Drink { Id = 2, Name = "Beer", Description = "A golden lite beer" };
 

@@ -45,7 +45,7 @@ namespace RestaurantTime.FrontOfHouse.Services.UnitTests.Services
             new InMemoryRestaurantDbContext()
             .Initialize();
 
-            await new BaseDataToRestaurantDbContext().AddBaseDataToDbContext(_restaurantDbContext);
+            await new BaseDataToRestaurantDbContext().AddAdditionalBaseDataToDbContext(_restaurantDbContext);
 
             var repo = new OrderRepository(_restaurantDbContext, new NullLogger<OrderRepository>());
             _orderService = new OrderService(repo, new NullLogger<OrderService>());
