@@ -24,11 +24,11 @@ namespace RestaurantTime.Database.Migrations
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Chef", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool>("IsWorkingToday")
                         .HasColumnType("bit");
@@ -74,7 +74,7 @@ namespace RestaurantTime.Database.Migrations
                         {
                             ChefId = 1,
                             RecipeId = 1,
-                            DateChefLearnedRecipe = new DateTime(2023, 1, 28, 21, 49, 39, 722, DateTimeKind.Local).AddTicks(7796)
+                            DateChefLearnedRecipe = new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(2286)
                         });
                 });
 
@@ -131,7 +131,7 @@ namespace RestaurantTime.Database.Migrations
                         {
                             DrinkId = 1,
                             OrderId = 1,
-                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 49, 39, 723, DateTimeKind.Local).AddTicks(2032)
+                            TimeOfOrder = new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(6574)
                         });
                 });
 
@@ -215,7 +215,7 @@ namespace RestaurantTime.Database.Migrations
                         {
                             FoodId = 1,
                             OrderId = 1,
-                            TimeOfOrder = new DateTime(2023, 1, 28, 21, 49, 39, 722, DateTimeKind.Local).AddTicks(9943)
+                            TimeOfOrder = new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(4483)
                         });
                 });
 
@@ -245,11 +245,11 @@ namespace RestaurantTime.Database.Migrations
 
             modelBuilder.Entity("RestaurantTime.Shared.Models.Order", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool>("BeenServed")
                         .HasColumnType("bit");
@@ -292,7 +292,7 @@ namespace RestaurantTime.Database.Migrations
                             HasOrderedFood = true,
                             InKitchen = false,
                             PlatesTakenAway = false,
-                            StartTime = new DateTime(2023, 1, 28, 21, 49, 39, 723, DateTimeKind.Local).AddTicks(2071),
+                            StartTime = new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(6610),
                             WaiterId = 1
                         });
                 });

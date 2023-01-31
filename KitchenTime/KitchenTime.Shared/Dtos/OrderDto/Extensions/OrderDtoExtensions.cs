@@ -57,11 +57,9 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
 
         public static GetOrderDto ToGetOrderDto(this Order entity)
         {
-            var orderId = entity.Id.HasValue ? entity.Id : throw new NullReferenceException($"No ID was found for the order {entity.Id}");
-
             var dto = new GetOrderDto
                 (
-                    orderId,
+                    entity.Id,
                     entity.GuestId,
                     entity.WaiterId,
                     entity.Foods.ToList(),

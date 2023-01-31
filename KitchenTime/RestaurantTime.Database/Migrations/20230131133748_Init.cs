@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RestaurantTime.Database.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -246,7 +246,7 @@ namespace RestaurantTime.Database.Migrations
             migrationBuilder.InsertData(
                 table: "ChefRecipe",
                 columns: new[] { "ChefId", "RecipeId", "DateChefLearnedRecipe" },
-                values: new object[] { 1, 1, new DateTime(2023, 1, 28, 21, 49, 39, 722, DateTimeKind.Local).AddTicks(7796) });
+                values: new object[] { 1, 1, new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(2286) });
 
             migrationBuilder.InsertData(
                 table: "Foods",
@@ -256,17 +256,17 @@ namespace RestaurantTime.Database.Migrations
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "BeenServed", "EndTime", "GuestId", "HasOrderedFood", "InKitchen", "PlatesTakenAway", "StartTime", "WaiterId" },
-                values: new object[] { 1, false, null, 1, true, false, false, new DateTime(2023, 1, 28, 21, 49, 39, 723, DateTimeKind.Local).AddTicks(2071), 1 });
+                values: new object[] { 1, false, null, 1, true, false, false, new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(6610), 1 });
 
             migrationBuilder.InsertData(
                 table: "DrinkOrder",
                 columns: new[] { "DrinkId", "OrderId", "TimeOfOrder" },
-                values: new object[] { 1, 1, new DateTime(2023, 1, 28, 21, 49, 39, 723, DateTimeKind.Local).AddTicks(2032) });
+                values: new object[] { 1, 1, new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(6574) });
 
             migrationBuilder.InsertData(
                 table: "FoodOrder",
                 columns: new[] { "FoodId", "OrderId", "TimeOfOrder" },
-                values: new object[] { 1, 1, new DateTime(2023, 1, 28, 21, 49, 39, 722, DateTimeKind.Local).AddTicks(9943) });
+                values: new object[] { 1, 1, new DateTime(2023, 1, 31, 13, 37, 47, 814, DateTimeKind.Local).AddTicks(4483) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChefRecipe_RecipeId",
