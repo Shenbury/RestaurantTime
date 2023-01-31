@@ -46,6 +46,8 @@ namespace RestaurantTime.FrontOfHouse.Services.UnitTests.Services
         {
             // Arrange & Act & Assert
 
+            // TODO: Add Asserts on Exception Messages
+
             await Assert.ThrowsAnyAsync<Exception>(async () =>
             {
                 var createOrderDto = new CreateOrderDto(guestId, waiterId, foodIds.ToList(), drinkIds.ToList(), DateTime.Now, null);
