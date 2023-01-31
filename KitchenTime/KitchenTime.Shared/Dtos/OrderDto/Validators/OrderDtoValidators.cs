@@ -21,11 +21,6 @@
             {
                 throw new NullReferenceException(nameof(dto.WaiterId));
             }
-
-            if (dto.WaiterId == 0)
-            {
-                throw new NullReferenceException(nameof(dto.WaiterId));
-            }
         }
 
         public static void Validate(this GetOrderDto dto)
@@ -38,14 +33,14 @@
                 throw new ArgumentException($"No food or drink was found in the order");
             }
 
+            if (dto.Id == 0)
+            {
+                throw new NullReferenceException(nameof(dto.Id));
+            }
+
             if (dto.GuestId == 0)
             {
                 throw new NullReferenceException(nameof(dto.GuestId));
-            }
-
-            if (dto.WaiterId == 0)
-            {
-                throw new NullReferenceException(nameof(dto.WaiterId));
             }
 
             if (dto.WaiterId == 0)
