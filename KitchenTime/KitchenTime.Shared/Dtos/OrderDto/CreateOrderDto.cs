@@ -22,7 +22,7 @@
         public List<int> DrinkIds { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public bool HasOrderedFood { get; set; }
+        public bool HasOrderedFood { get; set; } = false;
         public bool InKitchen { get; set; } = false;
         public bool BeenServed { get; set; } = false;
         public bool PlatesTakenAway { get; set; } = false;

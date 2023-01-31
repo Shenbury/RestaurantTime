@@ -75,7 +75,7 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
             return dto;
         }
 
-        private static List<FoodOrder> ToFoodOrders(this List<int> ints)
+        public static List<FoodOrder> ToFoodOrders(this List<int> ints)
         {
             var foodOrders = ints.Select(id => new FoodOrder
             {
@@ -85,7 +85,7 @@ namespace RestaurantTime.Shared.Dtos.OrderDto.Extensions
             return foodOrders;
         }
 
-        private static List<DrinkOrder> ToDrinkOrders(this List<int> ints)
+        public static List<DrinkOrder> ToDrinkOrders(this List<int> ints)
         {
             var drinkOrders = ints.Select(id => new DrinkOrder
             {

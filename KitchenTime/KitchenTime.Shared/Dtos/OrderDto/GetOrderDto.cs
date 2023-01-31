@@ -4,7 +4,7 @@ namespace RestaurantTime.Shared.Dtos.OrderDto
 {
     public class GetOrderDto
     {
-        public GetOrderDto(int? id, int guestId, int waiterId, List<Food>? food, List<Drink>? drinks, DateTime startTime, DateTime? endTime, bool hasOrderedFood, bool inKitchen, bool beenServed, bool platesTakenAway)
+        public GetOrderDto(int? id, int guestId, int waiterId, List<Food>? food, List<Drink>? drinks, DateTime startTime, DateTime? endTime, bool hasOrderedFood = false, bool inKitchen = false, bool beenServed = false, bool platesTakenAway = false)
         {
             Id = id;
             GuestId = guestId;
@@ -26,9 +26,9 @@ namespace RestaurantTime.Shared.Dtos.OrderDto
         public List<Drink>? Drinks { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public bool HasOrderedFood { get; set; }
-        public bool InKitchen { get; set; }
-        public bool BeenServed { get; set; }
-        public bool PlatesTakenAway { get; set; }
+        public bool HasOrderedFood { get; set; } = false;
+        public bool InKitchen { get; set; } = false;
+        public bool BeenServed { get; set; } = false;
+        public bool PlatesTakenAway { get; set; } = false;
     }
 }

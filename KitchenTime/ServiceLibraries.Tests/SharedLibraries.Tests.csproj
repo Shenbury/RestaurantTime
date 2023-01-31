@@ -25,4 +25,8 @@
     <Folder Include="RestaurantTime.Database\Repositories\Tests\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KitchenTime.Shared\RestaurantTime.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
