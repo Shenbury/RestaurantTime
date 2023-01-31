@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using RestaurantTime.Database.Services;
 using RestaurantTime.Database;
 using RestaurantTime.Shared.Dtos.OrderDto;
+using RestaurantTime.TestingLibraries.MockData;
 
 namespace RestaurantTime.FrontOfHouse.Services.UnitTests.Services
 {
@@ -14,21 +15,21 @@ namespace RestaurantTime.FrontOfHouse.Services.UnitTests.Services
 
         public OrderServiceTests()
         {
-            SetupCleanOrderService();
+            Task.Run(() => SetupCleanOrderService()).Wait();
         }
 
         [Theory]
         [InlineData()]
-        public async Task CanCreateOrder_WithFreshOrder()
+        public async Task CanCreateOrder_WithFreshOrderData()
         {
-            //// Arrange
-            //var createOrderDto = new CreateOrderDto();
+            // Arrange
+            var createOrderDto = new CreateOrderDto(1, 1, new List<int>(1), new List<int>(1), DateTime.Now, null);
 
-            //// Act
-            //var getOrderDto = await _orderService.CreateOrder(createOrderDto);
+            // Act
+            var getOrderDto = await _orderService.CreateOrder(createOrderDto);
 
-            //// Assert
-            //Assert.NotNull(createOrderDto);
+            // Assert
+            Assert.NotNull(getOrderDto);
         }
 
         [Theory]
@@ -38,11 +39,13 @@ namespace RestaurantTime.FrontOfHouse.Services.UnitTests.Services
 
         }
 
-        private void SetupCleanOrderService()
+        private async Task SetupCleanOrderService()
         {
             _restaurantDbContext =
             new InMemoryRestaurantDbContext()
             .Initialize();
+
+            await new BaseDataToRestaurantDbContext().AddBaseDataToDbContext(_restaurantDbContext);
 
             var repo = new OrderRepository(_restaurantDbContext, new NullLogger<OrderRepository>());
             _orderService = new OrderService(repo, new NullLogger<OrderService>());

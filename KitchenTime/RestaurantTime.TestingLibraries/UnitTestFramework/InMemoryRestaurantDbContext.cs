@@ -12,6 +12,7 @@ namespace RestaurantTime.TestingLibraries.UnitTestFramework
             .Options;
 
             var context = new RestaurantDbContext(options);
+            context.Database.EnsureCreated();
 
             return context;
         }
