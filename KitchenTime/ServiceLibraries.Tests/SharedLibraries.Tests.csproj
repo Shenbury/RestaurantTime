@@ -22,11 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="RestaurantTime.Database\Repositories\Tests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\KitchenTime.Shared\RestaurantTime.Shared.csproj" />
+    <ProjectReference Include="..\RestaurantTime.Database\RestaurantTime.Database.csproj" />
+    <ProjectReference Include="..\RestaurantTime.TestingLibraries\RestaurantTime.TestingLibraries.csproj" />
   </ItemGroup>
 
 </Project>
