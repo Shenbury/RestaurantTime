@@ -3,7 +3,13 @@
     public class OrderDtoValidatorTests
     {
         [Fact]
-        public void Test1()
+        public void CanValidate_WithCreateOrderDto()
+        {
+
+        }
+
+        [Fact]
+        public void CanValidate_WithGetOrderDto()
         {
 
         }
