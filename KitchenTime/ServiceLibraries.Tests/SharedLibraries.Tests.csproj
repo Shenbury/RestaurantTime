@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="RestaurantTime.Database\" />
+    <Folder Include="RestaurantTime.Database\Repositories\Tests\" />
   </ItemGroup>
 
 </Project>

@@ -22,4 +22,8 @@
     <ProjectReference Include="..\RestaurantTime.Database\RestaurantTime.Database.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MockData\" />
+  </ItemGroup>
+
 </Project>

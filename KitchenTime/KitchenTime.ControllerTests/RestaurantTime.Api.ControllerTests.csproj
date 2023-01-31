@@ -32,8 +32,4 @@
 		<InternalsVisibleTo Include="RestaurantTime.TestingLibraries" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\RestaurantTime.TestingLibraries\RestaurantTime.TestingLibraries.csproj" />
-	</ItemGroup>
-
 </Project>
