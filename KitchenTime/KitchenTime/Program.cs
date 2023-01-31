@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using RestaurantTime.Database;
-using RestaurantTime.Database.Services;
-using RestaurantTime.Database.Services.Interfaces;
+using RestaurantTime.Database.Repositories;
+using RestaurantTime.Database.Repositories.Interfaces;
 using RestaurantTime.FrontOfHouse.Services.Services;
 using RestaurantTime.FrontOfHouse.Services.Services.Interfaces;
 using System.Text.Json.Serialization;

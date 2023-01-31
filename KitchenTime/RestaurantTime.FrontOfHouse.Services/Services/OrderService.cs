@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using RestaurantTime.Database.Services.Interfaces;
+using RestaurantTime.Database.Repositories.Interfaces;
 using RestaurantTime.FrontOfHouse.Services.Services.Interfaces;
 using RestaurantTime.Shared.Dtos.OrderDto;
 

@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging.Abstractions;
 using RestaurantTime.Database;
-using RestaurantTime.Database.Services;
+using RestaurantTime.Database.Repositories;
 using RestaurantTime.Shared.Dtos.OrderDto;
 using RestaurantTime.TestingLibraries.UnitTestFramework;
-using System.Linq;
 
 namespace SharedLibraries.Tests.RestaurantTime.Database.Repositories.Tests
 {

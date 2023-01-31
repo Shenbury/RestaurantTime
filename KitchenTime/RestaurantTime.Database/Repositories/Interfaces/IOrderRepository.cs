@@ -1,6 +1,6 @@
 ﻿using RestaurantTime.Shared.Dtos.OrderDto;
 
-namespace RestaurantTime.Database.Services.Interfaces
+namespace RestaurantTime.Database.Repositories.Interfaces
 {
     public interface IOrderRepository
     {

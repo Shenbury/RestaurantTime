@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using RestaurantTime.Database.Services.Interfaces;
+using RestaurantTime.Database.Repositories.Interfaces;
 using RestaurantTime.Shared.Dtos.OrderDto;
 using RestaurantTime.Shared.Dtos.OrderDto.Extensions;
 using RestaurantTime.Shared.Dtos.OrderDto.Validators;
 using RestaurantTime.Shared.Models;
 
-namespace RestaurantTime.Database.Services
+namespace RestaurantTime.Database.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
@@ -26,7 +26,7 @@ namespace RestaurantTime.Database.Services
             var order = dto.ToOrderModel();
             _logger.LogInformation($"Converted {nameof(CreateOrderDto)} to order model for WaiterId:{dto.WaiterId}");
 
-            var entity = await _restaurantDb.AddAsync<Order>(order);
+            var entity = await _restaurantDb.AddAsync(order);
             await _restaurantDb.SaveChangesAsync();
 
             // Added fetch due to not fetching join tables and 

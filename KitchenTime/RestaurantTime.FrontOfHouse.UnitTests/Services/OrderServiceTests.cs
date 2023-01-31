@@ -1,9 +1,9 @@
 using RestaurantTime.TestingLibraries.UnitTestFramework;
 using RestaurantTime.FrontOfHouse.Services.Services;
 using Microsoft.Extensions.Logging.Abstractions;
-using RestaurantTime.Database.Services;
 using RestaurantTime.Database;
 using RestaurantTime.Shared.Dtos.OrderDto;
+using RestaurantTime.Database.Repositories;
 
 namespace RestaurantTime.FrontOfHouse.Services.UnitTests.Services
 {
