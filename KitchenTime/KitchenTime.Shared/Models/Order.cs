@@ -5,17 +5,23 @@ namespace RestaurantTime.Shared.Models
     public class Order
     {
         [Key]
-        public int? Id { get; set; }
-        public bool InKitchen { get; set; }
-        public bool BeenServed { get; set; }
-        public bool PlatesTakenAway { get; set; }
+        [Required]
+        public int Id { get; set; }
+
+        public bool InKitchen { get; set; } = false;
+        public bool BeenServed { get; set; } = false;
+        public bool PlatesTakenAway { get; set; } = false;
+
+        [Required]
         public DateTime StartTime {get; set;}
         public DateTime? EndTime {get; set;}
-        public bool HasOrderedFood { get; set; }
+        public bool HasOrderedFood { get; set; } = false;
 
+        [Required]
         public int GuestId { get; set; }
         public Guest Guest { get; set; }
 
+        [Required]
         public int WaiterId { get; set; }
         public Waiter Waiter { get; set; }
 

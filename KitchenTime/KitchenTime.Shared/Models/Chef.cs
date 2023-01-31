@@ -1,8 +1,12 @@
-﻿namespace RestaurantTime.Shared.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RestaurantTime.Shared.Models
 {
     public class Chef
     {
-        public int? Id { get; set; }
+        [Required]
+        public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public bool IsWorkingToday { get; set; } = false;
 
