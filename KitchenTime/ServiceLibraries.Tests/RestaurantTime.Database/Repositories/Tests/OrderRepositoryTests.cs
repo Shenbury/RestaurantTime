@@ -37,7 +37,6 @@ namespace SharedLibraries.Tests.RestaurantTime.Database.Repositories.Tests
 
         // TODO: Negative tests
 
-
         private async Task SetupCleanOrderRepository()
         {
             _restaurantDbContext =

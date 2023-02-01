@@ -1,5 +1,6 @@
 using RestaurantTime.Shared.Dtos.OrderDto;
 using RestaurantTime.TestingLibraries.IntegrationTestFramework;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 
@@ -31,8 +32,15 @@ namespace RestaurantTime.Api.ControllerTests
 
             response.EnsureSuccessStatusCode(); // Status Code 200-299
 
-            // TODO: Order Entity Checks
-            Assert.NotNull(response.Content.ReadAsStringAsync());
+            var json = await response.Content.ReadFromJsonAsync<GetOrderDto>();
+
+            Assert.Equal(newOrder.GuestId, json.GuestId);
+            Assert.Equal(newOrder.WaiterId, json.WaiterId);
+            Assert.Equal(newOrder.FoodIds.First(), json.Food.Select(f => f.Id).First());
+            Assert.Equal(newOrder.DrinkIds.First(), json.Drinks.Select(f => f.Id).First());
+            Assert.Equal(newOrder.InKitchen, json.InKitchen);
+            Assert.Equal(newOrder.BeenServed, json.BeenServed);
+            Assert.Equal(newOrder.PlatesTakenAway, json.PlatesTakenAway);
         }
     }
 }
